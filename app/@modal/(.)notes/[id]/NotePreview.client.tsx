@@ -9,7 +9,7 @@ type Props = {
     data: Note;
 }
 
-const NoteDetailsPreviewClient = ({ data }: Props) => {
+const NotePreviewClient = ({ data }: Props) => {
     const router = useRouter();
 
     const formattedData = data.updatedAt ? `Updated at: ${data.updatedAt}` : `Created at: ${data.createdAt}`;
@@ -38,4 +38,4 @@ const NoteDetailsPreviewClient = ({ data }: Props) => {
     )
 }
 
-export default NoteDetailsPreviewClient
+export default NotePreviewClient

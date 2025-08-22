@@ -1,6 +1,6 @@
 
 import { fetchNoteById } from "@/lib/api";
-import NoteDetailsPreviewClient from "./NoteDetailsPreview.client";
+import NotePreviewClient from "./NotePreview.client";
 
 
 type Props = {
@@ -15,7 +15,7 @@ const NotePreview = async ({ params }: Props) => {
 
     return (
         <>
-            <NoteDetailsPreviewClient data={note} />
+            <NotePreviewClient data={note} />
 
         </>
 
