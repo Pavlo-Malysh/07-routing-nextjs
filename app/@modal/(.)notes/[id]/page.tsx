@@ -7,7 +7,7 @@ type Props = {
     params: Promise<{ id: string }>
 }
 
-const PreviewPage = async ({ params }: Props) => {
+const NotePreview = async ({ params }: Props) => {
     const { id } = await params;
 
     const note = await fetchNoteById(id)
@@ -22,5 +22,5 @@ const PreviewPage = async ({ params }: Props) => {
     )
 }
 
-export default PreviewPage;
+export default NotePreview;
 
