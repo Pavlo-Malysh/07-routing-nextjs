@@ -11,17 +11,14 @@ import { useDebounce } from 'use-debounce';
 import css from './page.module.css';
 import NoteList from '@/components/NoteList/NoteList';
 import { Toaster, toast } from 'react-hot-toast';
-import { Note } from '@/types/note';
+
 
 type Props = {
-    initialData: {
-        notes: Note[],
-        totalPages: number
-    };
+
     tag?: string | undefined;
 }
 
-const NotesClient = ({ initialData, tag }: Props) => {
+const NotesClient = ({ tag }: Props) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,7 +30,7 @@ const NotesClient = ({ initialData, tag }: Props) => {
         queryFn: () => fetchNotes(currentPage, debouncedSearch, tag),
         placeholderData: keepPreviousData,
         refetchOnMount: false,
-        initialData,
+
 
     })
     const totalPages = data?.totalPages ?? 0;

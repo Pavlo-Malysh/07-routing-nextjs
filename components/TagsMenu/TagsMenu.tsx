@@ -13,13 +13,8 @@ const TagsMenu = () => {
             <button className={css.menuButton} onClick={togle}>
                 Notes ▾
             </button>
-            {isOpen && <ul onClick={togle} className={css.menuList}>
-                <li className={css.menuItem} >
-                    <Link href={`/notes/filter/all`} className={css.menuLink}>
-                        All notes
-                    </Link>
-                </li>
-                {tagName.map((tag, index) => <li className={css.menuItem} key={index}>
+            {isOpen && <ul className={css.menuList}>
+                {tagName.map((tag, index) => <li className={css.menuItem} key={index} onClick={togle}>
                     <Link href={`/notes/filter/${tag}`} className={css.menuLink}>
                         {tag}
                     </Link>

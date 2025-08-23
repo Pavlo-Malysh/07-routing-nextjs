@@ -1,2 +1,2 @@
 
-export const tagName = ['Work', 'Personal', 'Meeting', 'Shopping', 'Todo'];
+export const tagName = ['All', 'Work', 'Personal', 'Meeting', 'Shopping', 'Todo'];

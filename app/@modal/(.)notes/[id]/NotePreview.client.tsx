@@ -1,16 +1,27 @@
 'use client'
 
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import css from './NotePreview.module.css';
-import { Note } from "@/types/note";
 import Modal from "@/components/Modal/Modal";
+import { useQuery } from "@tanstack/react-query";
+import { fetchNoteById } from "@/lib/api";
 
-type Props = {
-    data: Note;
-}
 
-const NotePreviewClient = ({ data }: Props) => {
+
+const NotePreviewClient = () => {
+    const { id } = useParams<{ id: string }>()
     const router = useRouter();
+
+    const { data, isLoading, error } = useQuery({
+        queryKey: ['note', id],
+        queryFn: () => fetchNoteById(id),
+        refetchOnMount: false,
+    })
+
+
+    if (isLoading) return <p>Loading, please wait...</p>
+    if (error || !data) return <p > Something went wrong.</p>
+
 
     const formattedData = data.updatedAt ? `Updated at: ${data.updatedAt}` : `Created at: ${data.createdAt}`;
 
