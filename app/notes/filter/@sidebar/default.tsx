@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import css from './SidebarNotes.module.css';
-import { tagName } from '@/lib/tags';
+import { tagNames } from '@/lib/tags';
 
 const SidebarNotes = () => {
 
     return (
         <ul className={css.menuList}>
-            {tagName.map((tag, index) => <li className={css.menuItem} key={index}>
+            {tagNames.map((tag) => <li className={css.menuItem} key={tag}>
                 <Link href={`/notes/filter/${tag}`} className={css.menuLink}>
                     {tag}
                 </Link>
